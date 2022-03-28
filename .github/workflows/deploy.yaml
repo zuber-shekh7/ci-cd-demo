@@ -1,6 +1,7 @@
 name: learn-github-actions
 
-on: [push]
+on:
+  push:
 
 jobs:
   check-bats-version:
@@ -10,5 +11,5 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: yarn add -g bats
+      - run: yarn global add -g bats
       - run: bats -v
