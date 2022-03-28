@@ -1,4 +1,4 @@
-name: Development CI-CD workflow
+name: development-ci-ci-workflow
 
 on:
   push:
@@ -13,4 +13,4 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - runs: node --version
+      - run: node --version
