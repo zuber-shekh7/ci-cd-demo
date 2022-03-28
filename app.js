@@ -20,7 +20,7 @@ app.get("/hi/", (req, res) => {
   res.send(`Hi ${name}`);
 });
 
-app.get("bye", (req, res) => {
+app.get("/bye", (req, res) => {
   res.send("Bye Bye 👋🏼 👋🏼" + " " + req.ip);
 });
 
