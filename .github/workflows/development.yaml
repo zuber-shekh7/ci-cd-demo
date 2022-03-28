@@ -1,4 +1,4 @@
-name: development-ci-ci-workflow
+name: deploy-to-development-server
 
 on:
   push:
@@ -6,11 +6,15 @@ on:
       - development
 
 jobs:
-  check-node-version:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - run: node --version
+      - uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
+          heroku_email: ${{secrets.HEROKU_EMAIL}}
